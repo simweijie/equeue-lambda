@@ -21,27 +21,7 @@
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `{ error : "Log in failed. Incorrect username or password" }`
     
-## staffLogin
 
-* **URL**
-  : http://www.url.com/stafflogin
-
-* **Method:**
-  :`POST`
-  
-* **Request Payload**
-  
-  `{ username : 'staff1@hotmail.com', password : 'passw0rd123' }`
-* **Success Response:**
-
-  * **Code:** 200 <br />
-    **Content:** `{ id : 12 }`
- 
-* **Error Response:**
-
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Log in failed. Incorrect username or password" }`
-    
 ## logout
 
 * **URL**
@@ -57,21 +37,7 @@
 
   * **Code:** 200 <br />
 
-## stafflogout
 
-* **URL**
-  : http://www.url.com/stafflogout
-
-* **Method:**
-  :`POST`
-  
-* **Request Payload**
-  
-  `{ username : 'staff1@hotmail.com' }`
-* **Success Response:**
-
-  * **Code:** 200 <br />
- 
 ## registerCustomer
 
 * **URL**
@@ -128,7 +94,7 @@
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `{ error : "Log in failed. Incorrect username or password" }`
 
-## registerNewStaffNewClinic
+## registerStaffToNewClinic
    Self-registration to start a new clinic
 * **URL**
   : http://www.url.com/registerNewStaffNewClinic
@@ -172,7 +138,7 @@
   `{ 
     username : 'staff1@hotmail.com', password : 'passw0rd123',
     name: 'DOCTOR TAN', uin: 'S1234567X',
-    branchId: '5',
+    branchId: 5,
     contactNo: '12345678',
     job 'd'
    }`
@@ -210,3 +176,227 @@
 
   * **Code:**  <br />
     **Content:** ``
+    
+## addOpeningHours
+   Clinic admin can set the opening hours of the branch
+* **URL**
+  : http://www.url.com/addOpeningHours
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{ 
+    branchId : 5,
+    openingHours : {
+      open: '08:00',
+      close: '18:00',
+      dayOfWeek: 1
+    }
+    
+   }`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** ``
+ 
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** ``
+
+## deleteOpeningHours
+   Clinic admin can remove opening hours for a particular day of a branch
+* **URL**
+  : http://www.url.com/deleteOpeningHours
+
+* **Method:**
+  :`DELETE`
+  
+* **Request Payload**
+  
+  `{ 
+    branchId : 5,
+    dayOfWeek: 1 
+   }`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** ``
+ 
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** ``
+
+## updateOpeningHours
+   Clinic admin can set the opening hours of the branch
+* **URL**
+  : http://www.url.com/updateOpeningHours
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{ 
+    branchId : 5,
+    openingHours : {
+      open: '08:00',
+      close: '18:00',
+      dayOfWeek: 1
+    }
+    
+   }`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** ``
+ 
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** ``
+
+## joinQueue
+   Customer joins the queue for a branch
+* **URL**
+  : http://www.url.com/joinQueue
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{ 
+    branchId : 5,
+   }`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** ``
+ 
+* **Error Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `Already in another queue`
+    
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `Required to login`
+    
+## leaveQueue
+   Customer leaves the queue for a branch
+* **URL**
+  : http://www.url.com/leaveQueue
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{ 
+    branchId : 5,
+    customerId : 10
+   }`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** ``
+ 
+* **Error Response:**
+    
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `Required to login`
+        
+## getJoinedQueueStatus
+   Customer checks current position in the queue
+* **URL**
+  : http://www.url.com/getJoinedQueueStatus
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{ 
+    branchId : 5,
+    customerId : 10
+   }`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** ``
+ 
+* **Error Response:**
+    
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `Required to login`
+
+## staffLogin
+
+* **URL**
+  : http://www.url.com/staffLogin
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{ username : 'staff1@hotmail.com', password : 'passw0rd123' }`
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ id : 12 }`
+ 
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ error : "Log in failed. Incorrect username or password" }`
+    
+## staffLogout
+
+* **URL**
+  : http://www.url.com/staffLogout
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{ username : 'staff1@hotmail.com' }`
+* **Success Response:**
+
+  * **Code:** 200 <br />
+ 
+## updateQueueStatus
+   Staff advances the queue to its next stage (q - queue/d - doctor/p - payment/c - complete/r -cancel/m - missed)
+* **URL**
+  : http://www.url.com/updateQueueStatus
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{ 
+    branchId : 5,
+    customerId : 10,
+    status: "q"
+   }`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** 
+ 
+* **Error Response:**
+    
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `Required to login`
