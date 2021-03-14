@@ -1,6 +1,8 @@
 # Lambda Rest APIs
 ----
-## login
+## Customer APIs
+----
+### login
 
 * **URL**
   : http://www.url.com/login
@@ -22,7 +24,7 @@
     **Content:** `{ error : "Log in failed. Incorrect username or password" }`
     
 
-## logout
+### logout
 
 * **URL**
   : http://www.url.com/logout
@@ -38,7 +40,7 @@
   * **Code:** 200 <br />
 
 
-## registerCustomer
+### registerCustomer
 
 * **URL**
   : http://www.url.com/registerCustomer
@@ -65,7 +67,7 @@
   * **Code:**  <br />
     **Content:** ``
     
-## updateCustomerInfo
+### updateCustomerInfo
   Allows customer to update personal information.
   
 * **URL**
@@ -93,8 +95,179 @@
 
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `{ error : "Log in failed. Incorrect username or password" }`
+    
+### joinQueue
+   Customer joins the queue for a branch
+* **URL**
+  : http://www.url.com/joinQueue
 
-## registerStaffToNewClinic
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{ 
+    branchId : 5,
+   }`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** ``
+ 
+* **Error Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `Already in another queue`
+    
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `Required to login`
+    
+### leaveQueue
+   Customer leaves the queue for a branch
+* **URL**
+  : http://www.url.com/leaveQueue
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{ 
+    branchId : 5,
+    customerId : 10
+   }`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** ``
+ 
+* **Error Response:**
+    
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `Required to login`
+        
+### getJoinedQueueStatus
+   Customer checks current position in the queue
+* **URL**
+  : http://www.url.com/getJoinedQueueStatus
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{ 
+    branchId : 5,
+    customerId : 10
+   }`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** ``
+ 
+* **Error Response:**
+    
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `Required to login`
+
+### searchNearby (KIV)
+  System automatically suggests a branch for the customer to queue at based on distance, queue length.
+  
+  * **URL**
+  : http://www.url.com/searchNearby
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{ 
+   }`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** 
+    
+    `{
+      branchId:5,
+      queueNumber: 6
+    }`
+ 
+* **Error Response:**
+    
+  * **Code:** <br />
+    **Content:** ``
+
+
+### searchFilter   (KIV)
+  Customer filters based on preferences
+  
+  * **URL**
+  : http://www.url.com/searchFilter
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{ 
+    district : 'N',
+   }`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** ``
+ 
+* **Error Response:**
+    
+  * **Code:** <br />
+    **Content:** ``
+
+
+----
+## Staff APIs
+----
+
+### staffLogin
+
+* **URL**
+  : http://www.url.com/staffLogin
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{ username : 'staff1@hotmail.com', password : 'passw0rd123' }`
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ id : 12 }`
+ 
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ error : "Log in failed. Incorrect username or password" }`
+    
+### staffLogout
+
+* **URL**
+  : http://www.url.com/staffLogout
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{ username : 'staff1@hotmail.com' }`
+* **Success Response:**
+
+  * **Code:** 200 <br />
+ 
+### registerStaffToNewClinic
    Self-registration to start a new clinic
 * **URL**
   : http://www.url.com/registerNewStaffNewClinic
@@ -125,7 +298,7 @@
   * **Code:**  <br />
     **Content:** ``
 
-## registerStaffToExistingClinic
+### registerStaffToExistingClinic
    Self-registration for a staff to an already existing clinic/branch
 * **URL**
   : http://www.url.com/registerStaffExistingClinic
@@ -153,7 +326,7 @@
   * **Code:**  <br />
     **Content:** ``
     
-## activatePendingStaff
+### activatePendingStaff
    Clinic admin can confirm registration of staff to existing clinic
 * **URL**
   : http://www.url.com/activatePendingStaff
@@ -177,7 +350,7 @@
   * **Code:**  <br />
     **Content:** ``
     
-## addOpeningHours
+### addOpeningHours
    Clinic admin can set the opening hours of the branch
 * **URL**
   : http://www.url.com/addOpeningHours
@@ -207,7 +380,7 @@
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** ``
 
-## deleteOpeningHours
+### deleteOpeningHours
    Clinic admin can remove opening hours for a particular day of a branch
 * **URL**
   : http://www.url.com/deleteOpeningHours
@@ -232,7 +405,7 @@
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** ``
 
-## updateOpeningHours
+### updateOpeningHours
    Clinic admin can set the opening hours of the branch
 * **URL**
   : http://www.url.com/updateOpeningHours
@@ -262,120 +435,8 @@
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** ``
 
-## joinQueue
-   Customer joins the queue for a branch
-* **URL**
-  : http://www.url.com/joinQueue
 
-* **Method:**
-  :`POST`
-  
-* **Request Payload**
-  
-  `{ 
-    branchId : 5,
-   }`
-   
-* **Success Response:**
-
-  * **Code:** 200 <br />
-    **Content:** ``
- 
-* **Error Response:**
-
-  * **Code:** 200 <br />
-    **Content:** `Already in another queue`
-    
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `Required to login`
-    
-## leaveQueue
-   Customer leaves the queue for a branch
-* **URL**
-  : http://www.url.com/leaveQueue
-
-* **Method:**
-  :`POST`
-  
-* **Request Payload**
-  
-  `{ 
-    branchId : 5,
-    customerId : 10
-   }`
-   
-* **Success Response:**
-
-  * **Code:** 200 <br />
-    **Content:** ``
- 
-* **Error Response:**
-    
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `Required to login`
-        
-## getJoinedQueueStatus
-   Customer checks current position in the queue
-* **URL**
-  : http://www.url.com/getJoinedQueueStatus
-
-* **Method:**
-  :`POST`
-  
-* **Request Payload**
-  
-  `{ 
-    branchId : 5,
-    customerId : 10
-   }`
-   
-* **Success Response:**
-
-  * **Code:** 200 <br />
-    **Content:** ``
- 
-* **Error Response:**
-    
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `Required to login`
-
-## staffLogin
-
-* **URL**
-  : http://www.url.com/staffLogin
-
-* **Method:**
-  :`POST`
-  
-* **Request Payload**
-  
-  `{ username : 'staff1@hotmail.com', password : 'passw0rd123' }`
-* **Success Response:**
-
-  * **Code:** 200 <br />
-    **Content:** `{ id : 12 }`
- 
-* **Error Response:**
-
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Log in failed. Incorrect username or password" }`
-    
-## staffLogout
-
-* **URL**
-  : http://www.url.com/staffLogout
-
-* **Method:**
-  :`POST`
-  
-* **Request Payload**
-  
-  `{ username : 'staff1@hotmail.com' }`
-* **Success Response:**
-
-  * **Code:** 200 <br />
- 
-## updateQueueStatus
+### updateQueueStatus
    Staff advances the queue to its next stage (q - queue/d - doctor/p - payment/c - complete/r -cancel/m - missed)
 * **URL**
   : http://www.url.com/updateQueueStatus
@@ -400,3 +461,5 @@
     
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `Required to login`
+
+
