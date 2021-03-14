@@ -41,7 +41,7 @@
 ## registerCustomer
 
 * **URL**
-  : http://www.url.com/register
+  : http://www.url.com/registerCustomer
 
 * **Method:**
   :`POST`
