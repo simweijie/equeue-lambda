@@ -1,14 +1,14 @@
 import sys
 import logging
-import rds_config
 import pymysql
 import json
+import os
 
 #rds settings
-rds_endpoint  = "database-1.cqyrle3kurs0.ap-southeast-1.rds.amazonaws.com"
-username = rds_config.db_username
-password = rds_config.db_password
-db_name = rds_config.db_name
+rds_endpoint = os.environ['rds_endpoint']
+username=os.environ['username']
+password=os.environ['password']
+db_name=os.environ['db_name']
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -51,6 +51,7 @@ def lambda_handler(event, context):
     responseObject['statusCode'] = 200
     responseObject['headers'] = {}
     responseObject['headers']['Content-Type']='application/json'
+    responseObject['headers']['Access-Control-Allow-Origin']='*'
     responseObject['body'] = json.dumps(transactionResponse, sort_keys=True,default=str)
     
     #k = json.loads(responseObject['body'])
