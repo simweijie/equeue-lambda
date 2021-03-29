@@ -107,6 +107,7 @@
   
   `{ 
     branchId : 5,
+    customerId: 1
    }`
    
 * **Success Response:**
