@@ -361,8 +361,8 @@
   
   `{ 
     branchId : 5,
-    open: '08:00',
-    close: '18:00',
+    opens: '08:00',
+    closes: '18:00',
     dayOfWeek: 1
     
    }`
@@ -414,12 +414,9 @@
   
   `{ 
     branchId : 5,
-    openingHours : {
-      open: '08:00',
-      close: '18:00',
-      dayOfWeek: 1
-    }
-    
+    opens: '08:00',
+    closes: '18:00',
+    dayOfWeek: 1
    }`
    
 * **Success Response:**
