@@ -361,11 +361,9 @@
   
   `{ 
     branchId : 5,
-    openingHours : {
-      open: '08:00',
-      close: '18:00',
-      dayOfWeek: 1
-    }
+    open: '08:00',
+    close: '18:00',
+    dayOfWeek: 1
     
    }`
    
