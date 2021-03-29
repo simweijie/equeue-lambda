@@ -51,9 +51,8 @@
 * **Request Payload**
   
   `{ 
-    username : 'customer1@hotmail.com', password : 'passw0rd123',
+    email : 'customer1@hotmail.com', password : 'passw0rd123',
     name: 'TAN AH SENG', uin: 'S1234567X',
-    dob: '17/12/1993', sex: 'm',
     addr: '1 Happy Street', contactNo: '12345678'
    }`
    
@@ -83,7 +82,7 @@
   * addr (optional) <br />
   * contactNo (optional) <br />
   `{ 
-    username : 'customer1@hotmail.com', name: 'newname',
+    email : 'customer1@hotmail.com', name: 'newname',
     addr: '5 Apple Drive', contactNo: '43215678'
   }`
 * **Success Response:**
@@ -241,7 +240,7 @@
   
 * **Request Payload**
   
-  `{ username : 'staff1@hotmail.com', password : 'passw0rd123' }`
+  `{ email : 'staff1@hotmail.com', password : 'passw0rd123' }`
 * **Success Response:**
 
   * **Code:** 200 <br />
@@ -278,7 +277,7 @@
 * **Request Payload**
   
   `{ 
-    username : 'staff1@hotmail.com', password : 'passw0rd123',
+    email : 'staff1@hotmail.com', password : 'passw0rd123',
     name: 'DOCTOR TAN', uin: 'S1234567X',
     clinicName: 'Parkway Shenton',
     branchName: 'Jurong',
@@ -309,7 +308,7 @@
 * **Request Payload**
   
   `{ 
-    username : 'staff1@hotmail.com', password : 'passw0rd123',
+    email : 'staff1@hotmail.com', password : 'passw0rd123',
     name: 'DOCTOR TAN', uin: 'S1234567X',
     branchId: 5,
     contactNo: '12345678',
@@ -362,11 +361,9 @@
   
   `{ 
     branchId : 5,
-    openingHours : {
-      open: '08:00',
-      close: '18:00',
-      dayOfWeek: 1
-    }
+    opens: '08:00',
+    closes: '18:00',
+    dayOfWeek: 1
     
    }`
    
@@ -417,12 +414,9 @@
   
   `{ 
     branchId : 5,
-    openingHours : {
-      open: '08:00',
-      close: '18:00',
-      dayOfWeek: 1
-    }
-    
+    opens: '08:00',
+    closes: '18:00',
+    dayOfWeek: 1
    }`
    
 * **Success Response:**
