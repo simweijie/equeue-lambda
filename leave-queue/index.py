@@ -26,7 +26,7 @@ logger.info("SUCCESS: Connection to RDS MySQL instance succeeded")
 def handler(event, context):
     cur = connection.cursor()  
 ## Retrieve Data
-    query = "DELETE FROM Customer where uin = '{}'".format(event['uin'])    
+    query = "DELETE FROM Queue where branchId = '{}' and customerId= '{}'".format(event['branchId'],event['customerId'])    
     cur.execute(query)
     connection.commit()
 ## Construct body of the response object

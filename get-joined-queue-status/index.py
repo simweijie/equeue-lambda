@@ -26,11 +26,19 @@ logger.info("SUCCESS: Connection to RDS MySQL instance succeeded")
 def handler(event, context):
     cur = connection.cursor()  
 ## Retrieve Data
-    query = "DELETE FROM Customer where uin = '{}'".format(event['uin'])    
+    query = "SELECT status,queueNumber,branchId,customerId FROM Queue where branchId = '{}' and customerId= '{}'".format(event['branchId'],event['customerId'])    
     cur.execute(query)
     connection.commit()
 ## Construct body of the response object
     transactionResponse = {}
+    rows = cur.fetchall()
+    for row in rows:
+        print("TEST {0} {1} {2} {3}".format(row[0],row[1],row[2],row[3]))
+        transactionResponse['status'] = row[0]
+        transactionResponse['queueNumber'] = row[1]
+        transactionResponse['branchId'] = row[2]
+        transactionResponse['customerId'] = row[3]
+
 # Construct http response object
     responseObject = {}
     responseObject['statusCode'] = 200

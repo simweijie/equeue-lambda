@@ -29,6 +29,7 @@ def handler(event, context):
     query = "INSERT INTO Customer(email,password,uin,name,addr,contactNo) VALUES('{}','{}','{}','{}','{}','{}')".format(event['email'], event['password'], event['uin'], event['name'], event['addr'], event['contactNo'])
     cur.execute(query)
     connection.commit()
+    print(cur.rowcount, "record(s) affected")
 ## Construct body of the response object
     transactionResponse = {}
 # Construct http response object
