@@ -320,6 +320,53 @@
     
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `Required to login`
+    
+### listOfStaffInClinic
+   Returns a list of Staff that is working under the same Clinic as staff used in input.
+* **URL**
+  : http://www.url.com/listOfStaffInClinic
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{
+  "staffId": 2
+  }`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `[
+    {
+      "id": 2,
+      "email": "staff1@hotmail.com",
+      "name": "staff1",
+      "addr": "WORKER STREET",
+      "contactNo": "01234567",
+      "job": "D",
+      "status": null,
+      "isAdmin": null,
+      "branchId": 3
+    },
+    {
+      "id": 3,
+      "email": "staff2@hotmail.com",
+      "name": "staff2",
+      "addr": "WORKER STREET",
+      "contactNo": "01234567",
+      "job": "D",
+      "status": null,
+      "isAdmin": null,
+      "branchId": 4
+    }
+  ]`
+ 
+* **Error Response:**
+    
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `Required to login`
 ----
 ## Staff APIs
 ----
