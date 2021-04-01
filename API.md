@@ -226,7 +226,100 @@
   * **Code:** <br />
     **Content:** ``
 
+### listOfClinics
+   Returns with a list of all Clinics.
+* **URL**
+  : http://www.url.com/listOfClinics
 
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  ``
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `[
+    {
+      "id": 3,
+      "name": "Parkway Shenton"
+    },
+    {
+      "id": 7,
+      "name": "QM Dental"
+    }
+  ]`
+ 
+* **Error Response:**
+    
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `Required to login`
+    
+### listOfBranches
+   Returns a list of all branches.
+* **URL**
+  : http://www.url.com/listOfBranches
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  ``
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `[
+    {
+      "id": 1,
+      "name": "punggol",
+      "district": "north",
+      "address": "apple street",
+      "contactNo": "lol",
+      "clinicId": 3
+    }
+  ]`
+ 
+* **Error Response:**
+    
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `Required to login`
+    
+### listOfBranchesWithClinicId
+   Returns a list of Branches based on Clinic ID.
+* **URL**
+  : http://www.url.com/listOfBranchesWithClinicId
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{
+      "clinicId": 1
+    }`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `[
+    {
+      "id": 1,
+      "name": "punggol",
+      "district": "north",
+      "address": "apple street",
+      "contactNo": "lol",
+      "clinicId": 3
+    }
+  ]`
+ 
+* **Error Response:**
+    
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `Required to login`
 ----
 ## Staff APIs
 ----
