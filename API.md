@@ -226,7 +226,36 @@
   * **Code:** <br />
     **Content:** ``
 
+### listOfClinics
+   Customer checks current position in the queue
+* **URL**
+  : http://www.url.com/listOfClinics
 
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  ``
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `[
+    {
+      "id": 3,
+      "name": "Parkway Shenton"
+    },
+    {
+      "id": 7,
+      "name": "QM Dental"
+    }
+  ]`
+ 
+* **Error Response:**
+    
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `Required to login`
 ----
 ## Staff APIs
 ----
