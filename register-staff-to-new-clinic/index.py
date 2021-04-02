@@ -26,25 +26,35 @@ logger.info("SUCCESS: Connection to RDS MySQL instance succeeded")
 def handler(event, context):
     cur = connection.cursor()  
 ## Retrieve Data
+    ##CLINIC
     query1 = "INSERT INTO Clinic(name) VALUES ('{}')".format(event['clinicName'])
     cur.execute(query1)
-    # connection.commit()
     query2 = "SELECT id from Clinic where name = '{}'".format(event['clinicName'])
     cur.execute(query2)
-    # connection.commit()
     clinicId = cur.fetchone()[0]
     print("clinicId: ", clinicId)
-    query3 = "INSERT INTO Branch(name,district,address,contactNo,clinicId) VALUES('{}','{}','{}','{}','{}')".format(event['branchName'],event['district'],event['addr'],event['contactNo'],clinicId)
-    cur.execute(query3)
-    # connection.commit()
-    query4 = "SELECT id from Branch where name = '{}'".format(event['branchName'])
-    cur.execute(query4)
-    # connection.commit()
-    branchId = cur.fetchone()[0]
-    print("branchId: ", branchId)
+    ##BRANCH
+    index = 0
+    staffBranchId = 0
+    branches = event["branches"]
+    for branch in branches:
+        query3 = "INSERT INTO Branch(name,district,address,contactNo,clinicId) VALUES('{}','{}','{}','{}','{}')".format(branch['branchName'],branch['district'],branch['addr'],branch['contactNo'],clinicId)
+        cur.execute(query3)
+        query4 = "SELECT id from Branch where name = '{}'".format(branch['branchName'])
+        cur.execute(query4)
+        branchId = cur.fetchone()[0]
+        print("branchId: ", branchId)
+        if(index ==0):
+            staffBranchId= branchId
+            index+=1
+        openingHours = branch["openingHours"]
+        for openingHour in openingHours:
+            query = "INSERT INTO OpeningHours(opens,closes,dayOfWeek,branchId) VALUES('{}','{}','{}','{}')".format(openingHour['opens'],openingHour['closes'],openingHour['dayOfWeek'],branchId)
+            cur.execute(query)
+    ##STAFF
     query5 = "INSERT INTO Staff(email,password,name,addr,contactNo,job,status,isAdmin,branchId) \
         VALUES('{}','{}','{}','{}','{}','{}','{}','{}','{}')"\
-        .format(event['email'], event['password'], event['name'], event['addr'], event['contactNo'], event['job'],'A','Y',branchId)
+        .format(event['email'], event['password'], event['name'], event['addr'], event['contactNo'], event['job'],'A','Y',staffBranchId)
     cur.execute(query5)
     connection.commit()
     print(cur.rowcount, "record(s) affected")
