@@ -118,7 +118,11 @@
 * **Error Response:**
 
   * **Code:** 200 <br />
-    **Content:** `Already in another queue`
+    **Content:** `{
+    "error": "Already in queue for Branch 4: tampines",
+    "branchId": 4,
+    "branchName": "tampines"
+  }`
     
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `Required to login`
