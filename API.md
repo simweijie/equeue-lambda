@@ -408,7 +408,7 @@
   * **Code:** 200 <br />
  
 ### registerStaffToNewClinic
-   Self-registration to start a new clinic
+   Self-registration to start a new clinic. Note that staff will be registered under first branch in the branches list.
 * **URL**
   : http://www.url.com/registerNewStaffNewClinic
 
@@ -417,16 +417,48 @@
   
 * **Request Payload**
   
-  `{ 
-    email : 'staff1@hotmail.com', password : 'passw0rd123',
-    name: 'DOCTOR TAN', uin: 'S1234567X',
-    clinicName: 'Parkway Shenton',
-    branchName: 'Jurong',
-    district: 'west',
-    addr: '21 Jurong Town Hall Rd',
-    contactNo: '12345678',
-    job 'd'
-   }`
+  `{
+  "email": "staff16@hotmail.com",
+  "password": "passw0rd123",
+  "name": "DOCTOR TAN",
+  "addr": "Tan Drive Street Road",
+  "contactNo": "12345678",
+  "job": "D",
+  "clinicName": "newclinictest16",
+  "branches": [
+    {
+      "branchName": "newbranchtest17",
+      "district": "west",
+      "addr": "21 Jurong Town Hall Rd",
+      "contactNo": "22223333",
+      "openingHours": [
+        {
+          "opens": "08:00",
+          "closes": "16:00",
+          "dayOfWeek": 1
+        },
+        {
+          "opens": "08:00",
+          "closes": "12:00",
+          "dayOfWeek": 5
+        }
+      ]
+    },
+    {
+      "branchName": "newbranchtest18",
+      "district": "west",
+      "addr": "21 Jurong Town Hall Rd",
+      "contactNo": "22223333",
+      "openingHours": [
+        {
+          "opens": "08:00",
+          "closes": "16:00",
+          "dayOfWeek": 1
+        }
+      ]
+    }
+  ]
+}`
    
 * **Success Response:**
 
