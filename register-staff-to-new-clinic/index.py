@@ -28,16 +28,20 @@ def handler(event, context):
 ## Retrieve Data
     query1 = "INSERT INTO Clinic(name) VALUES ('{}')".format(event['clinicName'])
     cur.execute(query1)
-    query2 = "SELECT id from Clinic where name = '{}".format(event['clinicName'])
+    # connection.commit()
+    query2 = "SELECT id from Clinic where name = '{}'".format(event['clinicName'])
     cur.execute(query2)
+    # connection.commit()
     clinicId = cur.fetchone()[0]
-    query3 = "INSERT INTO Branch(name,district,address,contactNo,clinicId) \
-        VALUES('{}','{}','{}','{}','{}')"\
-        .format(event['branchName'],event['district'],event['address'],event['contactNo'],clinicId)
+    print("clinicId: ", clinicId)
+    query3 = "INSERT INTO Branch(name,district,address,contactNo,clinicId) VALUES('{}','{}','{}','{}','{}')".format(event['branchName'],event['district'],event['addr'],event['contactNo'],clinicId)
     cur.execute(query3)
-    query4 = "SELECT id from Branch where name = '{}'".format(event['clinicName'])
+    # connection.commit()
+    query4 = "SELECT id from Branch where name = '{}'".format(event['branchName'])
     cur.execute(query4)
-    branchId = cur.fetchone()[0]   
+    # connection.commit()
+    branchId = cur.fetchone()[0]
+    print("branchId: ", branchId)
     query5 = "INSERT INTO Staff(email,password,name,addr,contactNo,job,status,isAdmin,branchId) \
         VALUES('{}','{}','{}','{}','{}','{}','{}','{}','{}')"\
         .format(event['email'], event['password'], event['name'], event['addr'], event['contactNo'], event['job'],'A','Y',branchId)
