@@ -484,13 +484,15 @@
   
 * **Request Payload**
   
-  `{ 
-    email : 'staff1@hotmail.com', password : 'passw0rd123',
-    name: 'DOCTOR TAN', uin: 'S1234567X',
-    branchId: 5,
-    contactNo: '12345678',
-    job 'd'
-   }`
+  `{
+  "email": "stafftoexistclinic@hotmail.com",
+  "password": "pwd",
+  "name": "stafftoexistclinic",
+  "addr": "Doctor Street",
+  "contactNo": "77778888",
+  "job": "N",
+  "branchId": 4
+}`
    
 * **Success Response:**
 
@@ -501,7 +503,63 @@
 
   * **Code:**  <br />
     **Content:** ``
-    
+
+### updateStaff
+   Update a staff based on staff id
+* **URL**
+  : http://www.url.com/updateStaff
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{
+  "id": "3",
+  "email": "branch2staff@hotmail.com",
+  "name": "branch2staff",
+  "addr": "WORKER STREET UPDATED",
+  "contactNo": "01234567",
+  "job": "D",
+  "status": "A",
+  "isAdmin": "Y",
+  "branchId": "4"
+}`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** ``
+ 
+* **Error Response:**
+
+  * **Code:**  <br />
+    **Content:** ``
+
+### deleteStaffWithId
+   Delete staff based on staff id.
+* **URL**
+  : http://www.url.com/deleteStaffWithId
+
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  
+  `{
+  "id": 2
+}`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** ``
+ 
+* **Error Response:**
+
+  * **Code:**  <br />
+    **Content:** ``
+
 ### activatePendingStaff
    Clinic admin can confirm registration of staff to existing clinic
 * **URL**
@@ -512,9 +570,9 @@
   
 * **Request Payload**
   
-  `{ 
-    username : 'staff1@hotmail.com'
-   }`
+  `{
+  "id": 4
+}`
    
 * **Success Response:**
 
@@ -617,11 +675,12 @@
   
 * **Request Payload**
   
-  `{ 
-    branchId : 5,
-    customerId : 10,
-    status: "q"
-   }`
+  `{
+  "newStatus": "Q",
+  "branchId": "4",
+  "customerId": "3",
+  "currentStatus": "D"
+}`
    
 * **Success Response:**
 
