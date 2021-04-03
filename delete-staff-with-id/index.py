@@ -25,11 +25,10 @@ logger.info("SUCCESS: Connection to RDS MySQL instance succeeded")
 
 def handler(event, context):
     cur = connection.cursor()  
-## Retrieve Data    
-    query = "UPDATE Queue SET status='{}' where branchId='{}' and customerId='{}' and status='{}'".format(event['newStatus'],event['branchId'],event['customerId'],event['currentStatus'])
+## Retrieve Data
+    query = "DELETE FROM Staff where id = '{}'".format(event['id'])    
     cur.execute(query)
     connection.commit()
-    print(cur.rowcount, "record(s) affected")
 ## Construct body of the response object
     transactionResponse = {}
 # Construct http response object
