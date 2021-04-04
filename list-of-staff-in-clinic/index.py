@@ -26,9 +26,9 @@ logger.info("SUCCESS: Connection to RDS MySQL instance succeeded")
 def handler(event, context):
     cur = connection.cursor()  
 ## Retrieve Data
-    query = "SELECT s.id, s.email, s.name, s.addr, s.contactNo, s.job, s.status, s.isAdmin, s.branchId \
-        FROM Staff s, Branch  b \
-        WHERE s.branchId=b.id AND b.clinicId= \
+    query = "SELECT s.id, s.email, s.name, s.addr, s.contactNo, s.job, s.status, s.isAdmin, s.branchId, b.name,b.clinicId, c.name \
+        FROM Staff s, Branch  b, Clinic c \
+        WHERE s.branchId=b.id AND b.clinicId=c.id AND b.clinicId= \
             (SELECT clinicId FROM Branch WHERE id= \
                 (SELECT branchId FROM Staff WHERE id={}))".format(event['staffId'])    
     cur.execute(query)
@@ -38,7 +38,7 @@ def handler(event, context):
     staffinClinicList = []
     rows = cur.fetchall()
     for row in rows:
-        print("TEST {0} {1} {2} {3} {4} {5} {6} {7} {8}".format(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8]))
+        print("TEST {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11}".format(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11]))
         transactionResponse = {}
         transactionResponse['id'] = row[0]
         transactionResponse['email'] = row[1]
@@ -49,6 +49,9 @@ def handler(event, context):
         transactionResponse['status'] = row[6]
         transactionResponse['isAdmin'] = row[7]
         transactionResponse['branchId'] = row[8]
+        transactionResponse['branchName'] = row[9]
+        transactionResponse['clinicId'] = row[10]
+        transactionResponse['clinicName'] = row[11]
         staffinClinicList.append(transactionResponse)
 
 # Construct http response object
