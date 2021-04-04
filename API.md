@@ -344,26 +344,32 @@
   * **Code:** 200 <br />
     **Content:** `[
     {
-      "id": 2,
-      "email": "staff1@hotmail.com",
-      "name": "staff1",
-      "addr": "WORKER STREET",
+      "id": 3,
+      "email": "branch2staff@hotmail.com",
+      "name": "branch2staff",
+      "addr": "WORKER STREET UPDATED",
       "contactNo": "01234567",
       "job": "D",
-      "status": null,
-      "isAdmin": null,
-      "branchId": 3
+      "status": "A",
+      "isAdmin": "Y",
+      "branchId": 4,
+      "branchName": "tampines",
+      "clinicId": 1,
+      "clinicName": "QM Dental"
     },
     {
-      "id": 3,
-      "email": "staff2@hotmail.com",
-      "name": "staff2",
-      "addr": "WORKER STREET",
-      "contactNo": "01234567",
-      "job": "D",
-      "status": null,
-      "isAdmin": null,
-      "branchId": 4
+      "id": 9,
+      "email": "stafftoexistclinic@hotmail.com",
+      "name": "stafftoexistclinic",
+      "addr": "Doctor Street",
+      "contactNo": "77778888",
+      "job": "N",
+      "status": "P",
+      "isAdmin": "N",
+      "branchId": 4,
+      "branchName": "tampines",
+      "clinicId": 1,
+      "clinicName": "QM Dental"
     }
   ]`
  
