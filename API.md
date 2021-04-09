@@ -170,7 +170,7 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** ``
+    **Content:** `"{\"branchId\": 1, \"customerId\": 1, \"queueNumber\": 1, \"status\": \"Q\"}`
  
 * **Error Response:**
     
