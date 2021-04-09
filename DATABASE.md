@@ -14,9 +14,36 @@ CREATE TABLE Customer (
   uin varchar(255) UNIQUE,
   name varchar(255),
   addr varchar(255),
+  postal varchar(255),
   contactNo varchar(255)
 );
 
+CREATE TABLE Clinic (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  name varchar(255) UNIQUE
+);
+
+CREATE TABLE Branch (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  name varchar(255) UNIQUE,
+  district varchar(255),
+  addr varchar(255),
+  postal varchar(255),
+  contactNo varchar(255),
+  latt decimal(18,12),
+  longt decimal(18,12),
+  clinicId int,
+  FOREIGN KEY(clinicId) REFERENCES Clinic(id)
+); 
+
+CREATE TABLE OpeningHours (
+  dayOfWeek int,
+  branchId int,
+  opens time,
+  closes time,
+  PRIMARY KEY(dayOfWeek, branchId),
+  FOREIGN KEY(branchId) REFERENCES Branch(id)
+);
 
 CREATE TABLE Staff (
   id int PRIMARY KEY AUTO_INCREMENT,
@@ -29,30 +56,6 @@ CREATE TABLE Staff (
   status varchar(1),
   isAdmin varchar(1),
   branchId int,
-  FOREIGN KEY(branchId) REFERENCES Branch(id)
-);
-
-CREATE TABLE Clinic (
-  id int PRIMARY KEY AUTO_INCREMENT,
-  name varchar(255) UNIQUE
-);
-
-CREATE TABLE Branch (
-  id int PRIMARY KEY AUTO_INCREMENT,
-  name varchar(255) UNIQUE,
-  district varchar(255),
-  address varchar(255),
-  contactNo varchar(255),
-  clinicId int,
-  FOREIGN KEY(clinicId) REFERENCES Clinic(id)
-); 
-
-CREATE TABLE OpeningHours (
-  dayOfWeek int,
-  branchId int,
-  opens time,
-  closes time,
-  PRIMARY KEY(dayOfWeek, branchId),
   FOREIGN KEY(branchId) REFERENCES Branch(id)
 );
 
