@@ -2,7 +2,7 @@
 ----
 ## Customer APIs
 ----
-### login
+### login (Slide 11)
 
 * **URL**
   : http://www.url.com/login
@@ -40,7 +40,7 @@
   * **Code:** 200 <br />
 
 
-### registerCustomer
+### registerCustomer (slide 8)
 
 * **URL**
   : http://www.url.com/registerCustomer
@@ -95,7 +95,7 @@
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `{ error : "Log in failed. Incorrect username or password" }`
     
-### joinQueue
+### joinQueue (Slide 6)
    Customer joins the queue for a branch
 * **URL**
   : http://www.url.com/joinQueue
@@ -127,7 +127,7 @@
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `Required to login`
     
-### leaveQueue
+### leaveQueue (Slide 10)
    Customer leaves the queue for a branch
 * **URL**
   : http://www.url.com/leaveQueue
@@ -152,7 +152,7 @@
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `Required to login`
         
-### getJoinedQueueStatus
+### getJoinedQueueStatus (Slide 9)
    Customer checks current position in the queue
 * **URL**
   : http://www.url.com/getJoinedQueueStatus
@@ -162,15 +162,14 @@
   
 * **Request Payload**
   
-  `{ 
-    branchId : 5,
-    customerId : 10
-   }`
+  `{
+  "customerId": 1
+  }`
    
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** ``
+    **Content:** `"{\"branchAddr\": \"ncs street\", \"branchId\": 1, \"branchName\": \"ncs\", \"branchPostal\": \"569141\", \"clinicId\": 1, \"clinicName\": \"QM DENTAL\", \"currentQueueNumber\": 1, \"customerId\": 1, \"status\": \"Q\", \"yourQueueNumber\": 3}`
  
 * **Error Response:**
     
@@ -325,7 +324,7 @@
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `Required to login`
     
-### listOfStaffInClinic
+### listOfStaffInClinic (Slide 24)
    Returns a list of Staff that is working under the same Clinic as staff used in input.
 * **URL**
   : http://www.url.com/listOfStaffInClinic
@@ -381,7 +380,7 @@
 ## Staff APIs
 ----
 
-### staffLogin
+### staffLogin (Slide 18)
 
 * **URL**
   : http://www.url.com/staffLogin
@@ -417,7 +416,7 @@
 
   * **Code:** 200 <br />
  
-### registerStaffToNewClinic
+### registerStaffToNewClinic (Slide 20,21,22)
    Self-registration to start a new clinic. Note that staff will be registered under first branch in the branches list.
 * **URL**
   : http://www.url.com/registerNewStaffNewClinic
@@ -480,7 +479,7 @@
   * **Code:**  <br />
     **Content:** ``
 
-### registerStaffToExistingClinic
+### registerStaffToExistingClinic (Slide 23)
    Self-registration for a staff to an already existing clinic/branch
 * **URL**
   : http://www.url.com/registerStaffExistingClinic
@@ -510,7 +509,7 @@
   * **Code:**  <br />
     **Content:** ``
 
-### updateStaff
+### updateStaff (Slide 27)
    Update a staff based on staff id
 * **URL**
   : http://www.url.com/updateStaff
@@ -671,7 +670,7 @@
     **Content:** ``
 
 
-### updateQueueStatus
+### updateQueueStatus (Slide 19)
    Staff advances the queue to its next stage (q - queue/d - doctor/p - payment/c - complete/r -cancel/m - missed)
 * **URL**
   : http://www.url.com/updateQueueStatus
