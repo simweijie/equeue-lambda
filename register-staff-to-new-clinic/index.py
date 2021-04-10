@@ -38,7 +38,10 @@ def handler(event, context):
     staffBranchId = 0
     branches = event["branches"]
     for branch in branches:
-        query3 = "INSERT INTO Branch(name,district,address,contactNo,clinicId) VALUES('{}','{}','{}','{}','{}')".format(branch['branchName'],branch['district'],branch['addr'],branch['contactNo'],clinicId)
+        query3 = "INSERT INTO Branch(name,district,addr,postal,contactNo,latt,longt,clinicId) \
+            VALUES('{}','{}','{}','{}','{}','{}','{}','{}')"\
+                .format(branch['branchName'],branch['district'],branch['addr'],branch['postal'],\
+                    branch['contactNo'],branch['latt'],branch['longt'],clinicId)
         cur.execute(query3)
         query4 = "SELECT id from Branch where name = '{}'".format(branch['branchName'])
         cur.execute(query4)

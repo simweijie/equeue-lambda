@@ -34,14 +34,18 @@ def handler(event, context):
     branchList = []
     rows = cur.fetchall()
     for row in rows:
-        print("TEST {0} {1} {2} {3} {4} {5}".format(row[0],row[1],row[2],row[3],row[4],row[5]))
+        print("TEST {0} {1} {2} {3} {4} {5} {6} {7} {8}".format(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8]))
+        transactionResponse = {}
         transactionResponse = {}
         transactionResponse['id'] = row[0]
         transactionResponse['name'] = row[1]
         transactionResponse['district'] = row[2]
-        transactionResponse['address'] = row[3]
-        transactionResponse['contactNo'] = row[4]
-        transactionResponse['clinicId'] = row[5]
+        transactionResponse['addr'] = row[3]
+        transactionResponse['postal'] = row[4]
+        transactionResponse['contactNo'] = row[5]
+        transactionResponse['latt'] = row[6]
+        transactionResponse['longt'] = row[7]
+        transactionResponse['clinicId'] = row[8]
         branchList.append(transactionResponse)
 
 # Construct http response object

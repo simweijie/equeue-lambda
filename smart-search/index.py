@@ -30,33 +30,55 @@ def handler(event, context):
 ## Retrieve Data
     latt1 = radians(float(event['latt']))
     longt1 = radians(float(event['longt']))
-    query = "SELECT id,latt,longt FROM Branch"    
+    query = "SELECT b.id,latt,longt, count(b.id) as queue FROM Branch b, Queue q WHERE b.id=q.branchId AND status='Q' GROUP BY b.id;"    
     cur.execute(query)
     connection.commit()
 ## Construct body of the response object
 # https://stackoverflow.com/questions/19412462/getting-distance-between-two-points-based-on-latitude-longitude
+# https://stackabuse.com/how-to-sort-dictionary-by-value-in-python/
     branchList = []
     rows = cur.fetchall()
     id = 0
     latt = 0
     longt = 0
-    # R = 6373.0
+    # Distance and Queue length calculation
+    distanceDict = dict()
     for row in rows:
-        print("TEST {0} {1} {2}".format(row[0],row[1],row[2]))
+        print("TEST {0} {1} {2} {3}".format(row[0],row[1],row[2],row[3]))
         id = row[0]
         latt2 = radians(row[1])
         longt2 = radians(row[2])
-    #     dlon = longt2 - longt1
-    #     dlat = latt2 - latt1
-    #     a = sin(dlat / 2)**2 + cos(latt1) * cos(latt2) * sin(dlon / 2)**2
-    #     c = 2 * atan2(sqrt(a), sqrt(1 - a))
-    #     distance = R * c
-    #     print("Result:", distance)
         coords_1=(latt1,longt1)
         coords_2=(latt2,longt2)
-        print ("GEOPY DISTANCE: ", geopy.distance.distance(coords_1, coords_2).km)
+        distance = geopy.distance.distance(coords_1, coords_2).km
+        print ("GEOPY DISTANCE: ", distance)
+        distanceDict[id] = distance
+    sorted_distanceDict = dict()
+    sorted_keys = sorted(distanceDict, key=distanceDict.get)
+    count = 1
+    for w in sorted_keys:            
+        if(row[3] > 5):
+            sorted_distanceDict[w] = count + 1
+        else:
+            sorted_distanceDict[w] = count
+        count += 1
+    bestBranch = min(sorted_distanceDict,key=sorted_distanceDict.get)
 
-
+    # Distance and Queue length calculation
+    query = "SELECT * FROM Branch where id={}".format(bestBranch)
+    cur.execute(query)
+    connection.commit()
+    rows = cur.fetchall()
+    for row in rows:
+        print("TEST {0} {1} {2} {3} {4} {5}".format(row[0],row[1],row[2],row[3],row[4],row[5]))
+        transactionResponse = {}
+        transactionResponse['id'] = row[0]
+        transactionResponse['name'] = row[1]
+        transactionResponse['district'] = row[2]
+        transactionResponse['address'] = row[3]
+        transactionResponse['contactNo'] = row[4]
+        transactionResponse['clinicId'] = row[5]
+        branchList.append(transactionResponse)
 
 
 # Construct http response object
