@@ -669,7 +669,58 @@
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** ``
 
+### getBranchQueue (Slide 19)
+   Get the whole queue of a branch
+* **URL**
+  : http://www.url.com/getBranchQueue
 
+* **Method:**
+  :`POST`
+  
+* **Request Payload**
+  {
+  "staffId": 1
+}`
+   
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** 
+    `[
+    {
+      "id": 1,
+      "status": "Q",
+      "queueNumber": 3,
+      "customerId": 3,
+      "branchId": 1,
+      "customerName": "customer1",
+      "customerContactNo": "12345678"
+    },
+    {
+      "id": 2,
+      "status": "D",
+      "queueNumber": 2,
+      "customerId": 2,
+      "branchId": 1,
+      "customerName": "customer1",
+      "customerContactNo": "12345678"
+    },
+    {
+      "id": 3,
+      "status": "D",
+      "queueNumber": 1,
+      "customerId": 1,
+      "branchId": 1,
+      "customerName": "customer1",
+      "customerContactNo": "12345678"
+    }
+  ]`
+ 
+* **Error Response:**
+    
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `Required to login`
+    
 ### updateQueueStatus (Slide 19)
    Staff advances the queue to its next stage (q - queue/d - doctor/p - payment/c - complete/r -cancel/m - missed)
 * **URL**
