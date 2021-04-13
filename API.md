@@ -447,6 +447,9 @@
       "branchName": "newbranchtest17",
       "district": "west",
       "addr": "21 Jurong Town Hall Rd",
+      "postal": "123456",
+      "latt": "52.2296756",
+      "longt": "21.0122287",
       "contactNo": "22223333",
       "openingHours": [
         {
@@ -465,6 +468,9 @@
       "branchName": "newbranchtest18",
       "district": "west",
       "addr": "21 Jurong Town Hall Rd",
+      "postal": "123456",
+      "latt": "52.2296756",
+      "longt": "21.0122287",
       "contactNo": "22223333",
       "openingHours": [
         {
