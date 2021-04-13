@@ -176,28 +176,36 @@
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `Required to login`
 
-### searchNearby (KIV)
+### smartSearch (KIV)
   System automatically suggests a branch for the customer to queue at based on distance, queue length.
   
   * **URL**
-  : http://www.url.com/searchNearby
+  : http://www.url.com/smartSearch
 * **Method:**
   :`POST`
   
 * **Request Payload**
   
-  `{ 
-   }`
+  `{
+  "latt": "52.2296756",
+  "longt": "21.0122287"
+}`
    
 * **Success Response:**
 
   * **Code:** 200 <br />
     **Content:** 
     
-    `{
-      branchId:5,
-      queueNumber: 6
-    }`
+    `[
+    {
+      "id": 1,
+      "name": "ncs",
+      "district": "N",
+      "address": "ncs street",
+      "contactNo": "569141",
+      "clinicId": "12345678"
+    }
+  ]`
  
 * **Error Response:**
     
