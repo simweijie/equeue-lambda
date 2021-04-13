@@ -176,7 +176,7 @@
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `Required to login`
 
-### smartSearch (KIV)
+### smartSearch
   System automatically suggests a branch for the customer to queue at based on distance, queue length.
   
   * **URL**
@@ -198,12 +198,16 @@
     
     `[
     {
-      "id": 1,
-      "name": "ncs",
+      "id": 2,
+      "name": "northpoint",
       "district": "N",
-      "address": "ncs street",
-      "contactNo": "569141",
-      "clinicId": "12345678"
+      "addr": "northpoint street",
+      "postal": "769098",
+      "contactNo": "12345678",
+      "latt": 1.4296,
+      "longt": 103.83565,
+      "clinicId": 1,
+      "queueLength": 3
     }
   ]`
  
@@ -213,7 +217,7 @@
     **Content:** ``
 
 
-### searchFilter   (KIV)
+### searchFilter
   Customer filters based on preferences
   
   * **URL**
