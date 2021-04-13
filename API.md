@@ -223,9 +223,10 @@
   
 * **Request Payload**
   
-  `{ 
-    district : 'N',
-   }`
+  `{
+  "clinicId": "1",
+  "district": "N"
+}`
    
 * **Success Response:**
 
@@ -235,7 +236,22 @@
 * **Error Response:**
     
   * **Code:** <br />
-    **Content:** ``
+    **Content:** ` [
+    {
+      "branchId": 2,
+      "branchName": "northpoint",
+      "district": "N",
+      "addr": "northpoint street",
+      "postal": "769098",
+      "contactNo": "12345678",
+      "latt": 1.4296,
+      "longt": 103.83565,
+      "clinicId": 1,
+      "opens": "0:00:00",
+      "closes": "4:00:00",
+      "queueLength": 3
+    }
+  ]`
 
 ### listOfClinics
    Returns with a list of all Clinics.
