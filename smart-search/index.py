@@ -30,7 +30,12 @@ def handler(event, context):
 ## Retrieve Data
     latt1 = radians(float(event['latt']))
     longt1 = radians(float(event['longt']))
-    query = "SELECT b.id,latt,longt, count(b.id) as queue FROM Branch b, Queue q WHERE b.id=q.branchId AND status='Q' GROUP BY b.id;"    
+    query = "SELECT b.id,latt,longt, count(b.id) as queue \
+        FROM Branch b, Queue q, OpeningHours op \
+        WHERE b.id=q.branchId AND b.id=op.branchID \
+        AND status='Q' \
+        AND current_time- interval 16 hour between opens and closes and op.dayOfWeek=dayofweek(now()) \
+        GROUP BY b.id;"    
     cur.execute(query)
     connection.commit()
 ## Construct body of the response object
@@ -65,7 +70,7 @@ def handler(event, context):
     bestBranch = min(sorted_distanceDict,key=sorted_distanceDict.get)
 
     # Distance and Queue length calculation
-    query = "SELECT * FROM Branch where id={}".format(bestBranch)
+    query = "SELECT b.*,count(b.id) as queue FROM Branch b, Queue q WHERE b.id=q.branchId AND b.id={} AND q.status='Q' GROUP BY b.id;".format(bestBranch)
     cur.execute(query)
     connection.commit()
     rows = cur.fetchall()
@@ -75,9 +80,13 @@ def handler(event, context):
         transactionResponse['id'] = row[0]
         transactionResponse['name'] = row[1]
         transactionResponse['district'] = row[2]
-        transactionResponse['address'] = row[3]
-        transactionResponse['contactNo'] = row[4]
-        transactionResponse['clinicId'] = row[5]
+        transactionResponse['addr'] = row[3]
+        transactionResponse['postal'] = row[4]
+        transactionResponse['contactNo'] = row[5]
+        transactionResponse['latt'] = row[6]
+        transactionResponse['longt'] = row[7]
+        transactionResponse['clinicId'] = row[8]
+        transactionResponse['queueLength'] = row[9]
         branchList.append(transactionResponse)
 
 
