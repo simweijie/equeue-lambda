@@ -176,28 +176,40 @@
   * **Code:** 401 UNAUTHORIZED <br />
     **Content:** `Required to login`
 
-### searchNearby (KIV)
+### smartSearch
   System automatically suggests a branch for the customer to queue at based on distance, queue length.
   
   * **URL**
-  : http://www.url.com/searchNearby
+  : http://www.url.com/smartSearch
 * **Method:**
   :`POST`
   
 * **Request Payload**
   
-  `{ 
-   }`
+  `{
+  "latt": "52.2296756",
+  "longt": "21.0122287"
+}`
    
 * **Success Response:**
 
   * **Code:** 200 <br />
     **Content:** 
     
-    `{
-      branchId:5,
-      queueNumber: 6
-    }`
+    `[
+    {
+      "id": 2,
+      "name": "northpoint",
+      "district": "N",
+      "addr": "northpoint street",
+      "postal": "769098",
+      "contactNo": "12345678",
+      "latt": 1.4296,
+      "longt": 103.83565,
+      "clinicId": 1,
+      "queueLength": 3
+    }
+  ]`
  
 * **Error Response:**
     
@@ -205,7 +217,7 @@
     **Content:** ``
 
 
-### searchFilter   (KIV)
+### searchFilter
   Customer filters based on preferences
   
   * **URL**
@@ -215,9 +227,10 @@
   
 * **Request Payload**
   
-  `{ 
-    district : 'N',
-   }`
+  `{
+  "clinicId": "1",
+  "district": "N"
+}`
    
 * **Success Response:**
 
@@ -227,7 +240,22 @@
 * **Error Response:**
     
   * **Code:** <br />
-    **Content:** ``
+    **Content:** ` [
+    {
+      "branchId": 2,
+      "branchName": "northpoint",
+      "district": "N",
+      "addr": "northpoint street",
+      "postal": "769098",
+      "contactNo": "12345678",
+      "latt": 1.4296,
+      "longt": 103.83565,
+      "clinicId": 1,
+      "opens": "0:00:00",
+      "closes": "4:00:00",
+      "queueLength": 3
+    }
+  ]`
 
 ### listOfClinics
    Returns with a list of all Clinics.
@@ -439,6 +467,9 @@
       "branchName": "newbranchtest17",
       "district": "west",
       "addr": "21 Jurong Town Hall Rd",
+      "postal": "123456",
+      "latt": "52.2296756",
+      "longt": "21.0122287",
       "contactNo": "22223333",
       "openingHours": [
         {
@@ -457,6 +488,9 @@
       "branchName": "newbranchtest18",
       "district": "west",
       "addr": "21 Jurong Town Hall Rd",
+      "postal": "123456",
+      "latt": "52.2296756",
+      "longt": "21.0122287",
       "contactNo": "22223333",
       "openingHours": [
         {
