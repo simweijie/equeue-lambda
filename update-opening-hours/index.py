@@ -34,10 +34,10 @@ def handler(event, context):
     transactionResponse = {}
 # Construct http response object
     responseObject = {}
-    responseObject['statusCode'] = 200
-    responseObject['headers'] = {}
-    responseObject['headers']['Content-Type']='application/json'
-    responseObject['headers']['Access-Control-Allow-Origin']='*'
-    responseObject['body'] = json.dumps(transactionResponse, sort_keys=True,default=str)
+    # responseObject['statusCode'] = 200
+    # responseObject['headers'] = {}
+    # responseObject['headers']['Content-Type']='application/json'
+    # responseObject['headers']['Access-Control-Allow-Origin']='*'
+    responseObject['data'] = json.dumps(transactionResponse, sort_keys=True,default=str)
     
     return responseObject

@@ -60,10 +60,10 @@ def lambda_handler(event, context):
     
 # Construct http response object
     responseObject = {}
-    responseObject['statusCode'] = 200
-    responseObject['headers'] = {}
-    responseObject['headers']['Content-Type']='application/json'
-    responseObject['body'] = json.dumps(transactionResponse, sort_keys=True,default=str)
+    # responseObject['statusCode'] = 200
+    # responseObject['headers'] = {}
+    # responseObject['headers']['Content-Type']='application/json'
+    responseObject['data'] = json.dumps(transactionResponse, sort_keys=True,default=str)
     
     #k = json.loads(responseObject['body'])
     #print(k['uin'])

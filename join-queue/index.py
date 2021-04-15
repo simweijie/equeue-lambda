@@ -58,14 +58,14 @@ def handler(event, context):
     transactionResponse = {}
 # Construct http response object
     responseObject = {}
-    responseObject['statusCode'] = 200
-    responseObject['headers'] = {}
-    responseObject['headers']['Content-Type']='application/json'
-    responseObject['headers']['Access-Control-Allow-Origin']='*'
+    # responseObject['statusCode'] = 200
+    # responseObject['headers'] = {}
+    # responseObject['headers']['Content-Type']='application/json'
+    # responseObject['headers']['Access-Control-Allow-Origin']='*'
     if(not inQueue):
-        responseObject['body'] = json.dumps(transactionResponse, sort_keys=True,default=str)
+        responseObject['data'] = json.dumps(transactionResponse, sort_keys=True,default=str)
     else:
-         responseObject['body'] = {'error':'Already in queue for Branch ' + str(branchId) + ': ' + branchName, 'branchId': branchId, 'branchName': branchName}
+         responseObject['data'] = {'error':'Already in queue for Branch ' + str(branchId) + ': ' + branchName, 'branchId': branchId, 'branchName': branchName}
     
     #k = json.loads(responseObject['body'])
     #print(k['uin'])
