@@ -169,7 +169,7 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `"{\"branchAddr\": \"ncs street\", \"branchId\": 1, \"branchName\": \"ncs\", \"branchPostal\": \"569141\", \"clinicId\": 1, \"clinicName\": \"QM DENTAL\", \"currentQueueNumber\": 1, \"customerId\": 1, \"status\": \"Q\", \"yourQueueNumber\": 3}`
+    **Content:** `{"data": "{\"branchAddr\": \"ncs street\", \"branchId\": 1, \"branchName\": \"ncs\", \"branchPostal\": \"569141\", \"clinicId\": 1, \"clinicName\": \"QM DENTAL\", \"currentQueueNumber\": 1, \"customerId\": 1, \"status\": \"Q\", \"yourQueueNumber\": 3}"}`
  
 * **Error Response:**
     
@@ -196,7 +196,8 @@
   * **Code:** 200 <br />
     **Content:** 
     
-    `[
+    `{
+  "data": [
     {
       "id": 2,
       "name": "northpoint",
@@ -209,7 +210,8 @@
       "clinicId": 1,
       "queueLength": 3
     }
-  ]`
+  ]
+  }`
  
 * **Error Response:**
     
@@ -235,12 +237,8 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** ``
- 
-* **Error Response:**
-    
-  * **Code:** <br />
-    **Content:** ` [
+    **Content:** `{
+  "data": [
     {
       "branchId": 2,
       "branchName": "northpoint",
@@ -255,7 +253,12 @@
       "closes": "4:00:00",
       "queueLength": 3
     }
-  ]`
+  ]}`
+ 
+* **Error Response:**
+    
+  * **Code:** <br />
+    **Content:** ` `
 
 ### listOfClinics
    Returns with a list of all Clinics.
@@ -272,16 +275,20 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `[
+    **Content:** 
+        
+    `{
+  "data": [
     {
-      "id": 3,
+      "id": 2,
       "name": "Parkway Shenton"
     },
     {
-      "id": 7,
-      "name": "QM Dental"
+      "id": 1,
+      "name": "QM DENTAL"
     }
-  ]`
+  ]
+}`
  
 * **Error Response:**
     
@@ -303,7 +310,8 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `[
+    **Content:** `{
+  "data": [
     {
       "id": 1,
       "name": "punggol",
@@ -312,7 +320,7 @@
       "contactNo": "lol",
       "clinicId": 3
     }
-  ]`
+  ]}`
  
 * **Error Response:**
     
@@ -336,7 +344,8 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `[
+    **Content:** `{
+  "data": [
     {
       "id": 1,
       "name": "punggol",
@@ -345,7 +354,7 @@
       "contactNo": "lol",
       "clinicId": 3
     }
-  ]`
+  ]}`
  
 * **Error Response:**
     
@@ -369,7 +378,8 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `[
+    **Content:** `{
+  "data": [
     {
       "id": 3,
       "email": "branch2staff@hotmail.com",
@@ -398,7 +408,7 @@
       "clinicId": 1,
       "clinicName": "QM Dental"
     }
-  ]`
+  ]}`
  
 * **Error Response:**
     
@@ -422,7 +432,8 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ id : 12 }`
+    **Content:** `{
+  "data": { id : 12 }}`
  
 * **Error Response:**
 
@@ -720,7 +731,8 @@
 
   * **Code:** 200 <br />
     **Content:** 
-    `[
+    `{
+  "data": [
     {
       "id": 1,
       "status": "Q",
@@ -748,7 +760,7 @@
       "customerName": "customer1",
       "customerContactNo": "12345678"
     }
-  ]`
+  ]}`
  
 * **Error Response:**
     
