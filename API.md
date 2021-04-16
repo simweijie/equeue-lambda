@@ -12,11 +12,23 @@
   
 * **Request Payload**
   
-  `{ username : 'customer1@hotmail.com', password : 'passw0rd123' }`
+  `{ email : 'customer1@hotmail.com', password : 'passw0rd123' }`
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ id : 12 }`
+    **Content:** `{
+  "data": [
+    {
+      "id": 1,
+      "email": "customer1@hotmail.com",
+      "uin": "S1234567X",
+      "name": "customer1",
+      "addr": "APPLE STREET",
+      "postal": null,
+      "contactNo": "12345678"
+    }
+  ]
+}`
  
 * **Error Response:**
 
@@ -34,7 +46,7 @@
   
 * **Request Payload**
   
-  `{ username : 'customer1@hotmail.com' }`
+  `{ id : 10 }`
 * **Success Response:**
 
   * **Code:** 200 <br />
@@ -433,7 +445,22 @@
 
   * **Code:** 200 <br />
     **Content:** `{
-  "data": { id : 12 }}`
+  "{
+  "data": [
+    {
+      "id": 1,
+      "email": "staff1@hotmail.com",
+      "name": "staff1",
+      "addr": "WORKER STREET",
+      "postal": null,
+      "contactNo": "01234567",
+      "job": "D",
+      "status": "A",
+      "isAdmin": "Y",
+      "branchId": 1
+    }
+  ]
+}`
  
 * **Error Response:**
 
@@ -450,7 +477,7 @@
   
 * **Request Payload**
   
-  `{ username : 'staff1@hotmail.com' }`
+  `{ id : 8 }`
 * **Success Response:**
 
   * **Code:** 200 <br />
