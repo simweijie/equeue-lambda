@@ -16,7 +16,7 @@ logger.setLevel(logging.INFO)
 
 # Initialize SNS client for Singapore Region
 session = boto3.Session(
-    region_name="ap-southeast-1"
+    region_name="us-east-1"
 )
 sns_client = session.client('sns')
 
