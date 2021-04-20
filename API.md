@@ -327,7 +327,7 @@
     {
       "id": 1,
       "name": "punggol",
-      "district": "north",
+      "district": "N",
       "address": "apple street",
       "contactNo": "lol",
       "clinicId": 3
@@ -361,7 +361,7 @@
     {
       "id": 1,
       "name": "punggol",
-      "district": "north",
+      "district": "N",
       "address": "apple street",
       "contactNo": "lol",
       "clinicId": 3
@@ -503,7 +503,7 @@
   "branches": [
     {
       "branchName": "newbranchtest17",
-      "district": "west",
+      "district": "W",
       "addr": "21 Jurong Town Hall Rd",
       "postal": "123456",
       "latt": "52.2296756",
@@ -524,7 +524,7 @@
     },
     {
       "branchName": "newbranchtest18",
-      "district": "west",
+      "district": "W",
       "addr": "21 Jurong Town Hall Rd",
       "postal": "123456",
       "latt": "52.2296756",
