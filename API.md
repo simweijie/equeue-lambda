@@ -212,19 +212,21 @@
     `{
   "data": [
     {
-      "id": 2,
-      "name": "northpoint",
+      "id": 1,
+      "name": "ncs",
       "district": "N",
-      "addr": "northpoint street",
-      "postal": "769098",
+      "addr": "ncs street",
+      "postal": "569141",
       "contactNo": "12345678",
-      "latt": 1.4296,
-      "longt": 103.83565,
+      "latt": 1.38761,
+      "longt": 103.84381,
       "clinicId": 1,
-      "queueLength": 3
+      "queueLength": 2,
+      "opens": "0:00:00",
+      "closes": "23:59:00"
     }
   ]
-  }`
+}`
  
 * **Error Response:**
     
