@@ -166,6 +166,7 @@
         
 ### getJoinedQueueStatus (Slide 9)
    Customer checks current position in the queue
+   Note currentQueue refers to the queue number doctor is currently serving.
 * **URL**
   : http://www.url.com/getJoinedQueueStatus
 
