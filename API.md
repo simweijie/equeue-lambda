@@ -273,7 +273,9 @@
 * **Error Response:**
     
   * **Code:** <br />
-    **Content:** ` `
+    **Content:** `{
+  "error": "No clinic available"
+}`
 
 ### listOfClinics
    Returns with a list of all Clinics.
