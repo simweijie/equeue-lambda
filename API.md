@@ -182,7 +182,22 @@
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{"data": "{\"branchAddr\": \"ncs street\", \"branchId\": 1, \"branchName\": \"ncs\", \"branchPostal\": \"569141\", \"clinicId\": 1, \"clinicName\": \"QM DENTAL\", \"currentQueueNumber\": 1, \"customerId\": 1, \"status\": \"Q\", \"yourQueueNumber\": 3}"}`
+    **Content:** `{
+  "data": [
+    {
+      "status": "Q",
+      "yourQueueNumber": 3,
+      "branchId": 1,
+      "branchName": "ncs",
+      "branchAddr": "ncs street",
+      "branchPostal": "569141",
+      "clinicId": 1,
+      "clinicName": "QM DENTAL",
+      "customerId": 3,
+      "currentQueueNumber": 1
+    }
+  ]
+}`
  
 * **Error Response:**
     
