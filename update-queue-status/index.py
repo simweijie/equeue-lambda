@@ -16,7 +16,7 @@ logger.setLevel(logging.INFO)
 
 # Initialize SNS client for Singapore Region
 session = boto3.Session(
-    region_name="us-east-1"
+    region_name="ap-southeast-1"
 )
 sns_client = session.client('sns')
 
@@ -43,8 +43,8 @@ def handler(event, context):
         print('lol')
         query="SELECT c.name,c.contactNo,q.queueNumber \
             FROM Customer c, Queue q \
-            WHERE q.branchId='{}' AND q.status='Q' AND c.id=q.customerId \
-            ORDER BY queueNumber ASC LIMIT 1".format(event['branchId'])
+            WHERE q.branchId='{}' AND q.customerId='{}' and q.customerId=c.Id\
+            ORDER BY queueNumber ASC LIMIT 1".format(event['branchId'],event['customerId'])
         cur.execute(query)
         connection.commit()
         print(cur.rowcount, "record(s) select statements affected")
