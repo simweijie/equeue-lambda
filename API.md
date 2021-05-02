@@ -346,13 +346,116 @@
   "data": [
     {
       "id": 1,
-      "name": "punggol",
+      "name": "Branch1",
       "district": "N",
-      "address": "apple street",
-      "contactNo": "lol",
+      "addr": "Dental Street",
+      "postal": "123456",
+      "contactNo": "12345678",
+      "latt": 1.4296,
+      "longt": 103.83565,
+      "clinicId": 1
+    },
+    {
+      "id": 2,
+      "name": "newbranchtest17",
+      "district": "west",
+      "addr": "21 Jurong Town Hall Rd",
+      "postal": "123456",
+      "contactNo": "22223333",
+      "latt": 52.2296756,
+      "longt": 21.0122287,
+      "clinicId": 2
+    },
+    {
+      "id": 3,
+      "name": "newbranchtest18",
+      "district": "west",
+      "addr": "21 Jurong Town Hall Rd",
+      "postal": "123456",
+      "contactNo": "22223333",
+      "latt": 52.2296756,
+      "longt": 21.0122287,
+      "clinicId": 2
+    },
+    {
+      "id": 4,
+      "name": "jurong east",
+      "district": "W",
+      "addr": "Shenton Family Medical Clinic - Jurong East, Jurong Gateway Rd, #01-263, Blk 131, Singapore 600131",
+      "postal": "600131",
+      "contactNo": "54545454",
+      "latt": 1.33472,
+      "longt": 103.74004,
       "clinicId": 3
+    },
+    {
+      "id": 5,
+      "name": "Citylink",
+      "district": "S",
+      "addr": "12 Marina Boulevard, #17-05 Marina Bay Financial Centre Tower 3, 018982",
+      "postal": "018982",
+      "contactNo": "54154565",
+      "latt": 1.27911,
+      "longt": 103.8543,
+      "clinicId": 4
+    },
+    {
+      "id": 6,
+      "name": "HOME 1",
+      "district": "E",
+      "addr": "Blk 491 Admiralty Link #09-195",
+      "postal": "750491",
+      "contactNo": "98765432",
+      "latt": 1.45611,
+      "longt": 103.81772,
+      "clinicId": 5
+    },
+    {
+      "id": 7,
+      "name": "newbranchtest21",
+      "district": "W",
+      "addr": "21 Jurong Town Hall Rd",
+      "postal": "123456",
+      "contactNo": "22223333",
+      "latt": 52.2296756,
+      "longt": 21.0122287,
+      "clinicId": 7
+    },
+    {
+      "id": 8,
+      "name": "newbranchtest22",
+      "district": "W",
+      "addr": "21 Jurong Town Hall Rd",
+      "postal": "123456",
+      "contactNo": "22223333",
+      "latt": 52.2296756,
+      "longt": 21.0122287,
+      "clinicId": 7
+    },
+    {
+      "id": 9,
+      "name": "GOING BRANCH",
+      "district": "N",
+      "addr": "Blk 491 Admiralty Link #09-195",
+      "postal": "750491",
+      "contactNo": "98765432",
+      "latt": 1.45611,
+      "longt": 103.81772,
+      "clinicId": 8
+    },
+    {
+      "id": 10,
+      "name": "MAKE BRANCH",
+      "district": "N",
+      "addr": "Blk 491 Admiralty Link #09-195",
+      "postal": "750491",
+      "contactNo": "98765432",
+      "latt": 1.45611,
+      "longt": 103.81772,
+      "clinicId": 9
     }
-  ]}`
+  ]
+}`
  
 * **Error Response:**
     
