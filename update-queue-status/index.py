@@ -62,7 +62,7 @@ def handler(event, context):
         response = sns_client.publish(
             PhoneNumber='+65' + contactNo,
             Message='Hi ' + name + 
-            ', please note that you are next in line to see the doctor.',
+            ', please proceed to the consultation room now.',
             MessageAttributes={
                 'AWS.SNS.SMS.SenderID': {
                     'DataType': 'String',
